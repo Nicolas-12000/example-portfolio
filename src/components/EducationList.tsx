@@ -1,4 +1,7 @@
-export default function EducationList({ education }: { education: any }) {
+type EducationItem = { title: string; field: string; location?: string; period?: string };
+type EducationShape = { highSchool: EducationItem; diploma: EducationItem; graduation: EducationItem };
+
+export default function EducationList({ education }: { education: EducationShape }) {
   return (
     <section className="sm:col-span-2 md:col-span-6 md:row-span-3 flex flex-col gap-4 md:gap-6">
       <article className="card w-full">

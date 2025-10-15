@@ -1,4 +1,6 @@
-export default function ExperienceCard({ item }: { item: any }) {
+type ExperienceItem = { title: string; role: string; period: string; bullets: string[] };
+
+export default function ExperienceCard({ item }: { item: ExperienceItem }) {
   return (
     <article className="sm:col-span-2 md:col-span-6 card">
       <section className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-grey pb-6 md:pb-10">
@@ -11,8 +13,8 @@ export default function ExperienceCard({ item }: { item: any }) {
         </span>
       </section>
       <ul className="list-disc list-inside text-white text-xs md:text-sm mt-4 md:mt-6 space-y-2">
-        {item.bullets.map((b: string) => (
-          <li key={b} className="leading-relaxed">{b}</li>
+        {item.bullets.map((b, i) => (
+          <li key={`${item.title}-${i}`} className="leading-relaxed">{b}</li>
         ))}
       </ul>
     </article>

@@ -2,7 +2,17 @@
 
 import { Calendar, Mail, Phone, MapPin } from "lucide-react";
 
-export default function ContactDetails({ dict }: { dict: any }) {
+type ContactSections = {
+  details?: string;
+  age?: string;
+  email?: string;
+  phone?: string;
+  country?: string;
+};
+
+type ContactDict = { sections?: ContactSections };
+
+export default function ContactDetails({ dict }: { dict: ContactDict }) {
   return (
     <div className="sm:col-span-2 md:col-span-12 rounded-2xl bg-foreground p-6 md:p-8 lg:p-10 shadow-lg">
       <div className="flex flex-wrap items-center gap-3 md:gap-4">
