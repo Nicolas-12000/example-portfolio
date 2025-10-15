@@ -6,7 +6,7 @@
   --grey: #757575;
 }
 
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-grey: var(--grey);
@@ -22,7 +22,110 @@
   }
 }
 
+/* Support class-based theme toggling */
+:root.light {
+  --background: #f7f7fb;
+  --foreground: #0f1724;
+  --grey: #9aa3b2;
+  --card: #ffffff;
+  --muted: #6b7280;
+}
+
+:root.dark {
+  --background: #060608;
+  --foreground: #f3f4f6;
+  --grey: #9ca3af;
+  --card: #0f1724;
+  --muted: #94a3b8;
+}
+
 body {
   background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Card utilities */
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.4);
+  padding: 1.25rem;
+}
+
+.bg-background { background-color: var(--background); }
+.bg-foreground { background-color: var(--card); }
+.text-white { color: var(--foreground); }
+.border-grey { border-color: var(--grey); }
+.muted { color: var(--muted); }
+
+/* Theme toggle styles */
+.theme-toggle {
+  width: 44px;
+  height: 26px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.theme-toggle .toggle-knob {
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: var(--background);
+  box-shadow: 0 2px 6px rgba(2,6,23,0.5);
+  transform: translateX(0);
+  transition: transform 180ms ease, background 180ms ease;
+}
+.theme-toggle.dark {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+}
+.theme-toggle.dark .toggle-knob {
+  transform: translateX(18px);
+  background: #ffd966;
+}
+.theme-toggle.light .toggle-knob {
+  transform: translateX(0);
+  background: #fff;
+}
+
+/* Language switcher */
+.lang-switcher {
+  /* place the switcher inline so header can center it vertically */
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 60;
+}
+.lang-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: transparent;
+  height: 100%;
+}
+.lang-btn {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--foreground);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-weight: 700;
+  line-height: 1;
+}
+.lang-btn .flag { font-size: 18px; display:inline-block; line-height:1; }
+.lang-btn.active {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.06));
+  border-color: rgba(255,255,255,0.12);
+}
+.lang-label { font-size: 12px; display:inline-block; }

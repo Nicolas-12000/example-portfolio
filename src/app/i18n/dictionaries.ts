@@ -19,6 +19,13 @@ export type Dictionary = {
   sections: {
     interests: { title: string; items: string[] };
     experience: { freelance: ExperienceItem; meetzed: ExperienceItem };
+    portfolioTitle?: string;
+    portfolioLinks?: { label: string; href: string }[];
+    details?: string;
+    age?: string;
+    email?: string;
+    phone?: string;
+    country?: string;
     designTools: string;
     education: {
       highSchool: EducationItem;
@@ -86,6 +93,16 @@ const dictionaries: Record<Lang, Dictionary> = {
       },
       editingTools: "Herramientas de edición",
       languages: "Idiomas",
+      portfolioTitle: "Portafolio",
+      portfolioLinks: [
+        { label: 'Website', href: '#' },
+        { label: 'Behance', href: '#' },
+      ],
+      details: "Detalles",
+      age: "26 años",
+      email: "tu@email.com",
+      phone: "+591 0000000",
+      country: "India",
     },
     switcher: { label: "Idioma", es: "Español", en: "Inglés" },
   },
@@ -143,6 +160,16 @@ const dictionaries: Record<Lang, Dictionary> = {
       },
       editingTools: "Editing Tools",
       languages: "Languages",
+      portfolioTitle: "Portfolio",
+      portfolioLinks: [
+        { label: 'Website', href: '#' },
+        { label: 'Behance', href: '#' },
+      ],
+      details: "Details",
+      age: "26 years",
+      email: "your@email.com",
+      phone: "+591 0000000",
+      country: "Bolivia",
     },
     switcher: { label: "Language", es: "Spanish", en: "English" },
   },
