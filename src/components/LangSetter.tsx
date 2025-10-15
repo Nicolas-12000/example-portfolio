@@ -19,7 +19,7 @@ export default function LangSetter({ lang }: { lang: string }) {
       // fallback to prefers-color-scheme
       const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.classList.add(prefersDark ? "dark" : "light");
-    } catch (e) {
+    } catch {
       // noop
     }
   }, [lang]);

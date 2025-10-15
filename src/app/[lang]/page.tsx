@@ -28,7 +28,7 @@ export default async function Home({
 
       <main className="container mx-auto px-4 pt-24 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-4 md:gap-6 lg:gap-10">
-          <ProfileCard dict={dict} />
+          <ProfileCard />
 
           <p className="sm:col-span-2 md:col-span-8 lg:col-span-9 p-4 md:p-6 text-base md:text-xl lg:text-2xl text-white rounded-2xl bg-foreground shadow-lg leading-relaxed">
             {dict.intro}

@@ -37,7 +37,11 @@ export default function ThemeToggle() {
       className={`theme-toggle ${isDark ? 'dark' : 'light'}`}
       aria-label="Toggle theme"
     >
+      <span className="sr-only">Toggle theme</span>
       <span className="toggle-knob" />
+      {/* decorative icons for clarity, aria-hidden */}
+      <Moon aria-hidden className="absolute left-2 top-1/2 -translate-y-1/2 opacity-70" size={14} />
+      <Sun aria-hidden className="absolute right-2 top-1/2 -translate-y-1/2 opacity-70" size={14} />
     </button>
   );
 }
